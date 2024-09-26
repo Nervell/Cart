@@ -1,26 +1,24 @@
 package com.shophere.cart.services;
 
-import com.shophere.cart.model.Item;
+import com.shophere.cart.model.Cart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ServiceImpl implements CartInterface {
 
-    @Autowired
-    private final Item item;
-
-    public ServiceImpl(Item item) {
-        this.item = item;
+    @Override
+    public void addItemToTheCart(Cart cart, int item) {
+        cart.addItem(item);
     }
 
     @Override
-    public void addItem(int id) {
-        item.setId(id);
+    public Cart getItemsFromTheCart(Cart cart) {
+        return cart;
     }
 
     @Override
-    public Item getItem() {
-        return item;
+    public void removeItemFromTheCart(Cart cart, int item) {
+        cart.removeItem(item);
     }
 }
